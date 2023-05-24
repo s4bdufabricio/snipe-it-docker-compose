@@ -37,9 +37,9 @@ MAIL_ENV_PASSWORD=your_email_pw
 APP_ENV=production
 APP_DEBUG=false
 APP_KEY={{INSERT_API_TOKEN}}
-APP_URL=http://127.0.0.1:80
-APP_TIMEZONE=Europe/London # you should change this to your timezone
-APP_LOCALE=en # you should change this for the desired language
+APP_URL=http://<IP_TO_YOUR_SERVER>:3051
+APP_TIMEZONE=Europe/London
+APP_LOCALE=en
 ```
 
 # API Key
@@ -48,8 +48,16 @@ Regarding the api key, the first time you launch the containers with the docker-
 
 You can do this with:
 
+Get your container name created.
+
 ```
-docker exec -it your-snipe-it-container-name sh
+sudo docker ps -a 
+```
+
+Enter on SH into container
+
+```
+sudo docker exec -it your-snipe-it-container-name sh
 ```
 
 You will then have shell access to the container and you need to run the following command on the root in order to get your API key:
@@ -73,8 +81,15 @@ with:
 And now if you restart your containers with for instance:
 
 ```
-docker-compose down && docker-compose up -d --build
+sudo docker-compose down && sudo docker-compose up -d --build
 ```
+
+Or start with interactive for see the logs
+
+```
+sudo docker-compose down && sudo docker-compose up --build
+```
+
 
 You should be good and have everything available at:
 
